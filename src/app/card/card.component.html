@@ -1,0 +1,28 @@
+<div class="card">
+  <img [src]="beer.image_url" alt="beer" />
+  <p class="name">{{ beer.name }}</p>
+  <div class="details">
+    <small>ABV:{{ beer.abv }} %</small>
+    <small>IBU:{{ beer.ibu }}</small>
+  </div>
+  <div class="overlay">
+    <div class="text">
+      <h4>{{ beer.name }}</h4>
+      <div class="favorite">
+        <span
+          [ngClass]="{ saved: checkExistence(beer) }"
+          class="material-icons"
+          (click)="toggleFavorites(beer)"
+          title="Add to favorites"
+        >
+          star
+        </span>
+      </div>
+      <h5>...{{ beer.tagline }}</h5>
+      <p>{{ beer.description }}</p>
+      <p style="margin-top: -20px; color: #034e4e">
+        ...<i>goes well with&#58; {{ beer.food_pairing.join(", ") }}</i>
+      </p>
+    </div>
+  </div>
+</div>

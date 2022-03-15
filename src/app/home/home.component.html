@@ -1,0 +1,20 @@
+<main>
+  <div class="wrapper">
+    <app-card
+      *ngFor="let beer of beers"
+      [beer]="beer"
+      [favorites]="favorites"
+    ></app-card>
+  </div>
+  <div class="buttons">
+    <button
+      [disabled]="page === 1"
+      class="btn"
+      [ngClass]="{ disabled: page === 1 }"
+      (click)="previousPage()"
+    >
+      &lt;&lt; Prev
+    </button>
+    <button class="btn" (click)="nextPage()">Next &gt;&gt;</button>
+  </div>
+</main>
