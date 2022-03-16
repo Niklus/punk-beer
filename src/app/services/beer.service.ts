@@ -21,7 +21,7 @@ export class BeerService {
 
   searchForBeer(beer: string) {
     this.http
-      .get(`https://api.punkapi.com/v2/beers?beer_name=${beer}&per_page=24`)
+      .get(`${this.base_url}/beers?beer_name=${beer}&per_page=24`)
       .subscribe((data: any) => {
         data.length > 0
           ? this.beers.next(data)
