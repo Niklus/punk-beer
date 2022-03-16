@@ -1,6 +1,6 @@
 # PunkBeer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+Punk Beer App: See it live [HERE](https://punk-brew.netlify.app)
 
 ## Development server
 
