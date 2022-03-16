@@ -38,6 +38,10 @@ input {
   padding: 10px;
 }
 
+.hide {
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   input {
     display: none;

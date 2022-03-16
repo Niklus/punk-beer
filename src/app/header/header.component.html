@@ -5,10 +5,13 @@
       [(ngModel)]="beer"
       placeholder="Search for a beer 🍺 ..."
       name="beer"
+      [ngClass]="{ hide: url === '/favorites' }"
     />
   </form>
   <nav>
-    <a href="#" class="btn">Home</a>
-    <a href="#" class="btn">Favorites</a>
+    <a routerLink="./home" routerLinkActive="active" class="btn">Home</a>
+    <a routerLink="./favorites" routerLinkActive="active" class="btn"
+      >Favorites</a
+    >
   </nav>
 </header>

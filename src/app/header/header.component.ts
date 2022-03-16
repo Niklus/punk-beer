@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BeerService } from '../services/beer.service';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,15 @@ import { BeerService } from '../services/beer.service';
 })
 export class HeaderComponent {
   public beer: string = '';
+  public url: string = '';
 
-  constructor(private beerService: BeerService) {}
+  constructor(private beerService: BeerService, private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.url = event.url;
+      }
+    });
+  }
 
   onSubmit(event: any) {
     event.preventDefault();
@@ -17,5 +25,9 @@ export class HeaderComponent {
       this.beerService.searchForBeer(this.beer);
       this.beer = '';
     }
+  }
+
+  checkUrl() {
+    console.log(this.router.url);
   }
 }

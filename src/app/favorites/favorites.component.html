@@ -1,0 +1,11 @@
+<main>
+  <div class="wrapper">
+    <h1 *ngIf="favorites.length === 0">You have no favorites yet...</h1>
+    <app-card
+      *ngFor="let beer of favorites"
+      [beer]="beer"
+      [favorites]="favorites"
+      (removedFromFavorites)="getFavorites()"
+    ></app-card>
+  </div>
+</main>

@@ -11,9 +11,16 @@ import { HeaderComponent } from './header/header.component';
 import { BeerService } from './services/beer.service';
 import { DatabaseService } from './services/database.service';
 import { CardComponent } from './card/card.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, CardComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    CardComponent,
+    FavoritesComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [BeerService, DatabaseService],
   bootstrap: [AppComponent],

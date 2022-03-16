@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
 
 @Component({
@@ -9,16 +9,18 @@ import { DatabaseService } from '../services/database.service';
 export class CardComponent implements OnInit {
   @Input() beer: any;
   @Input() favorites: any;
+  @Output() removedFromFavorites = new EventEmitter();
 
   constructor(private databaseServive: DatabaseService) {}
 
   ngOnInit(): void {}
 
   toggleFavorites(beer: any) {
-    const found = this.favorites.find((el: any) => el.id === beer.id);
-    if (found) {
-      this.favorites.splice(this.favorites.indexOf(found), 1);
+    const index = this.favorites.findIndex((el: any) => el.id === beer.id);
+    if (index !== -1) {
+      this.favorites.splice(index, 1);
       this.databaseServive.delete(Number(beer.id));
+      this.removedFromFavorites.emit('beer removed');
     } else {
       this.favorites.push(beer);
       this.databaseServive.addToDatabase(beer);
