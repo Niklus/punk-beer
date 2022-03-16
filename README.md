@@ -1,6 +1,8 @@
 # PunkBeer
 
-Punk Beer App: See it live [HERE](https://punk-brew.netlify.app)
+Punk Beer App built with Angular
+
+## [LIVE LINK](https://punk-brew.netlify.app)
 
 ## Development server
 
