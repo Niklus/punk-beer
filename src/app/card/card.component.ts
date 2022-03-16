@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
 
 @Component({
@@ -6,14 +6,12 @@ import { DatabaseService } from '../services/database.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() beer: any;
   @Input() favorites: any;
   @Output() removedFromFavorites = new EventEmitter();
 
   constructor(private databaseServive: DatabaseService) {}
-
-  ngOnInit(): void {}
 
   toggleFavorites(beer: any) {
     const index = this.favorites.findIndex((el: any) => el.id === beer.id);
